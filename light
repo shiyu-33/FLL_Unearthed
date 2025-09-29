@@ -1,0 +1,23 @@
+from pybricks.hubs import PrimeHub
+from pybricks.parameters import Color
+from pybricks.tools import multitasking, run_task, wait
+
+#Initialize the hubs
+hub = PrimHub
+
+Color_1 = Cyan
+Color_2 = Green
+Color_3 = Yellow
+Color_4 = Magenta
+Color_5 = Red
+
+async def light():
+    hub.light.blink(Color.RED, 500)
+    await wait(500)
+
+async def main():
+    await main(light())
+
+run_task(main())
+
+
