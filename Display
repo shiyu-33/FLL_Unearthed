@@ -1,0 +1,64 @@
+from pybricks.hubs import PrimeHub
+from pybricks.parameters import Color
+from pybricks.parameters import Icon
+from pybricks.tools import wait, Matrix, run_task
+
+# Initialize the hub.
+hub = PrimeHub()
+
+# Turn the light on and off 5 times.
+for i in range(5):
+    hub.light.on(Color.RED)
+    wait(400)
+  
+
+    hub.light.on(Color.GREEN)
+    wait(400)
+
+    hub.light.on(Color.ORANGE)
+    wait(400)
+
+# Make a square.
+SQUARE = Matrix(
+    [
+        [100, 100, 100, 100, 100],
+        [100, 100, 100, 100, 100],
+        [100, 100, 100, 100, 100],
+        [100, 100, 100, 100, 100],
+        [100, 100, 100, 100, 100],
+    ]
+)
+hub.display.icon(SQUARE)
+wait(3000)
+
+#Make a square that is bright on the outside and faint in the middle.
+SQUARE = Matrix(
+    [
+        [100, 100, 100, 100, 100],
+        [100, 50, 50, 50, 100],
+        [100, 50, 0, 50, 100],
+        [100, 50, 50, 50, 100],
+        [100, 100, 100, 100, 100],
+    ]
+)
+hub.display.icon(SQUARE)
+wait(3000)
+
+#Make a T 
+SQUARE = Matrix(
+    [
+        [100, 100, 100, 100,100],
+        [50, 50, 100, 50, 50],
+        [50, 50, 100, 50, 50],
+        [50, 50, 100, 50, 50],
+        [50, 50, 100, 50, 50],
+    ]
+)
+hub.display.icon(SQUARE)
+wait(3000)
+
+#Make noise
+async def noise():
+     await hub.speaker.beep(frequency=500, duration=100)
+
+run_task(noise())
